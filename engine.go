@@ -18,7 +18,7 @@ func initPerson(person *PersonImpl, name string) {
 	return
 }
 
-func NewPhysicalPerson(name string, surname string, secondSurname string) Person {
+func NewPhysicalPerson(name string, surname string, secondSurname string) *PhysicalPersonImpl {
 	person := &PhysicalPersonImpl{}
 	person.Name = name
 	person.Surname = surname
@@ -26,7 +26,7 @@ func NewPhysicalPerson(name string, surname string, secondSurname string) Person
 	return person
 }
 
-func NewFirmPerson(name string) Person {
+func NewFirmPerson(name string) *FirmPersonImpl {
 	person := &FirmPersonImpl{}
 	initPerson(&person.PersonImpl, name)
 	return person
