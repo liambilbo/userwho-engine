@@ -1,11 +1,14 @@
 package userwho_engine
 
-import "testing"
+import (
+	"testing"
+	"time"
+)
 
 func TestNewFirmPerson(t *testing.T) {
 	address:=NewAddress("ESP","28027","Madrid","Madrid","CL","Rocadragon","4","10-F")
-
-	firmPerson:=NewFirmPerson("Lorea S.A.","ESP","ESP",address)
+    document:=NewDocument("PK34","passport","ESP",time.Time{},time.Time{})
+	firmPerson:=NewFirmPerson("Lorea S.A.","ESP","ESP",document,address)
 
 	addresses:=firmPerson.Address(addressFiscalKey)
 
@@ -14,4 +17,11 @@ func TestNewFirmPerson(t *testing.T) {
 	} else if addresses[0].Street!="Rocadragon"{
 		t.Errorf("Adding a fiscal address , should return a fiscal address with the same street")
 	}
+
+	passport:=firmPerson.Document("passport")
+	if passport.Number != "PK34" {
+		t.Errorf("Passport is not equal")
+
+	}
+
 }
