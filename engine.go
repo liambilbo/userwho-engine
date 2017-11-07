@@ -15,7 +15,7 @@ const (
 
 
 //Init common data of a Person
-func (person *Person) initPerson(personType PersonType,nationality Country,residence Country,document *Document,fiscalAdress *Address) {
+func (person *Person) initPerson(personType PersonType,nationality Country,residence Country,document Document,fiscalAdress Address) {
 	person.Id = uuid.New()
 	person.Type = personType
 	person.Nationality = nationality
@@ -25,8 +25,8 @@ func (person *Person) initPerson(personType PersonType,nationality Country,resid
 }
 
 //Create a new Physicalperson
-func NewPhysicalPerson(name string, surname string, secondSurname string,nationality Country,residence Country,document *Document,fiscalAdress *Address) *PhysicalPerson {
-	person := &PhysicalPerson{}
+func NewPhysicalPerson(name string, surname string, secondSurname string,nationality Country,residence Country,document Document,fiscalAdress Address) PhysicalPerson {
+	person := PhysicalPerson{}
 	person.initPerson(physicalKey,nationality,residence,document,fiscalAdress)
 	person.Name = name
 	person.Surname = surname
@@ -35,16 +35,16 @@ func NewPhysicalPerson(name string, surname string, secondSurname string,nationa
 }
 
 //Create a new Firm Person
-func NewFirmPerson(name string,nationality Country,residence Country,document *Document,fiscalAdress *Address) *FirmPerson {
-	person := &FirmPerson{}
+func NewFirmPerson(name string,nationality Country,residence Country,document Document,fiscalAdress Address) FirmPerson {
+	person := FirmPerson{}
 	person.initPerson(firmKey,nationality,residence,document,fiscalAdress)
 	person.Name = name
 	return person
 }
 
 //Create a new address
-func NewAddress(country Country, postalCode string,province string,town string,streetType StreetType,street string, streetNumber string,complementary string) *Address {
-	address:=&Address{}
+func NewAddress(country Country, postalCode string,province string,town string,streetType StreetType,street string, streetNumber string,complementary string) Address {
+	address:=Address{}
 	address.Country=country
 	address.PostalCode=postalCode
 	address.Province=province
@@ -58,8 +58,8 @@ func NewAddress(country Country, postalCode string,province string,town string,s
 
 
 //Create a document
-func NewDocument(number string, documentType DocumentType,issueCountry Country,issueDate time.Time,maturityDate time.Time) *Document {
-	document:=&Document{}
+func NewDocument(number string, documentType DocumentType,issueCountry Country,issueDate time.Time,maturityDate time.Time) Document {
+	document:=Document{}
 	document.Number=number
 	document.Type=documentType
 	document.IssueCountry=issueCountry

@@ -2,9 +2,9 @@ package userwho_engine
 
 
 //Add an address to the person
-func (addresses *Addresses) addAddress(address *Address,addressType AddressType) {
+func (addresses *Addresses) addAddress(address Address,addressType AddressType) {
 	paddrr:=PersonAddress{}
-	paddrr.Address=*address
+	paddrr.Address=address
 	paddrr.Type=addressType
 	addresses.Addresses=append(addresses.Addresses,paddrr)
 }
@@ -22,11 +22,11 @@ func (addresses *Addresses) Address(addressType AddressType) []PersonAddress{
 }
 
 //Add a document to a person
-func (documents *Documents) addDocument(document *Document) {
+func (documents *Documents) addDocument(document Document) {
 	if documents.Documents==nil {
 		documents.Documents=make(map[DocumentType]Document)
 	}
-	documents.Documents[document.Type]=*document
+	documents.Documents[document.Type]=document
 }
 
 //Get a document to a person
