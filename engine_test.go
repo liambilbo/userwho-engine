@@ -5,8 +5,7 @@ import "testing"
 func TestNewFirmPerson(t *testing.T) {
 	address:=NewAddress("ESP","28027","Madrid","Madrid","CL","Rocadragon","4","10-F")
 
-	firmPerson:=NewFirmPerson("Lorea S.A.","ESP","ESP")
-    firmPerson.addAddress(address,addressFiscalKey)
+	firmPerson:=NewFirmPerson("Lorea S.A.","ESP","ESP",address)
 
 	addresses:=firmPerson.Address(addressFiscalKey)
 
