@@ -2,6 +2,7 @@ package userwho_engine
 
 import (
 	"time"
+	"fmt"
 )
 
 type Country string
@@ -18,7 +19,7 @@ type LaboralSituation string
 
 
 type Actor interface {
-	Id() string
+	FullName() string
 }
 
 type Document struct {
@@ -85,4 +86,12 @@ type FirmPerson struct {
 	SettingUpDate         time.Time
 	SettingUpCountry      Country
 	Cnae Cnae
+}
+
+func (person PhysicalPerson) FullName() string {
+	return fmt.Sprintf("%s %s , %s" ,person.SecondSurname,person.Surname,person.Name)
+}
+
+func (person FirmPerson) FullName() string {
+	return person.Name
 }
