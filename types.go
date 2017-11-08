@@ -71,7 +71,6 @@ type PhysicalPerson struct {
 	BirthCity         string
 	BirthDate         time.Time
 	BirthCountry       Country
-	Nationality       Country
 	SecondNationality Country
 	Sex               Sex
 	MaritalStatus     MaritalStatus
