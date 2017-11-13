@@ -16,6 +16,7 @@ type Cnae string
 type EducationLevel string
 type ProfessionalActivity string
 type LaboralSituation string
+type Role string
 
 
 type Actor interface {
@@ -60,6 +61,7 @@ type Person struct {
 	Type                PersonType
 	Nationality         Country
 	ResidenceCountry    Country
+	Roles []Role
 	Documents
 	Addresses
 }
@@ -89,7 +91,13 @@ type FirmPerson struct {
 }
 
 func (person PhysicalPerson) FullName() string {
-	return fmt.Sprintf("%s %s , %s" ,person.SecondSurname,person.Surname,person.Name)
+	var result string
+	if person.SecondSurname=="" {
+		result = fmt.Sprintf("%s , %s" ,person.Surname,person.Name)
+	} else {
+		result = fmt.Sprintf("%s %s , %s" ,person.Surname,person.SecondSurname,person.Name)
+	}
+	return result
 }
 
 func (person FirmPerson) FullName() string {

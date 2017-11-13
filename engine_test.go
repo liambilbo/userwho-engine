@@ -45,7 +45,7 @@ func TestNewPhysicalPerson(t *testing.T) {
 	}
 
 	fullname:=physicalPerson.FullName()
-	if fullname != "Alvarez , Juan" {
+	if fullname != "Rodrigo , Juan" {
 		t.Errorf("FullName is not equal")
 	}
 
