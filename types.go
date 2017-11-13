@@ -27,8 +27,8 @@ type Document struct {
 	Number       string
 	Type         DocumentType
 	IssueCountry Country
-	IssueDate    time.Time
-	MaturityDate time.Time
+	IssueDate    *time.Time
+	MaturityDate *time.Time
 }
 type Address struct {
 	Country       Country
