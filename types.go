@@ -20,6 +20,7 @@ type Role string
 
 
 type Actor interface {
+	GetId() string
 	FullName() string
 }
 
@@ -88,6 +89,10 @@ type FirmPerson struct {
 	SettingUpDate         time.Time
 	SettingUpCountry      Country
 	Cnae Cnae
+}
+
+func (person Person) GetId() string {
+	return person.Id
 }
 
 func (person PhysicalPerson) FullName() string {

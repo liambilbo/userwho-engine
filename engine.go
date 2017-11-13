@@ -58,7 +58,7 @@ func NewAddress(country Country, postalCode string,province string,town string,s
 
 
 //Create a document
-func NewDocument(number string, documentType DocumentType,issueCountry Country,issueDate time.Time,maturityDate time.Time) Document {
+func NewDocument(number string, documentType DocumentType,issueCountry Country,issueDate *time.Time,maturityDate *time.Time) Document {
 	document:=Document{}
 	document.Number=number
 	document.Type=documentType
