@@ -2,12 +2,11 @@ package userwho_engine
 
 import (
 	"testing"
-	"time"
 )
 
 func TestNewFirmPerson(t *testing.T) {
 	address:=NewAddress("ESP","28027","Madrid","Madrid","CL","Rocadragon","4","10-F")
-    document:=NewDocument("0123456","CIF","ESP",time.Time{},time.Time{})
+    document:=NewDocument("0123456","CIF","ESP",nil,nil)
 	firmPerson:=NewFirmPerson("Lorea S.A.","ESP","ESP",document,address)
 
 	addresses:=firmPerson.Address(addressFiscalKey)
@@ -28,7 +27,7 @@ func TestNewFirmPerson(t *testing.T) {
 
 func TestNewPhysicalPerson(t *testing.T) {
 	address:=NewAddress("ESP","28027","Madrid","Madrid","CL","Rocadragon","4","10-F")
-	document:=NewDocument("K12312","passport","ESP",time.Time{},time.Time{})
+	document:=NewDocument("K12312","passport","ESP",nil,nil)
 	physicalPerson:=NewPhysicalPerson("Juan","Rodrigo","","ESP","ESP",document,address)
 
 	addresses:=physicalPerson.Address(addressFiscalKey)
