@@ -108,3 +108,5 @@ func (person PhysicalPerson) FullName() string {
 func (person FirmPerson) FullName() string {
 	return person.Name
 }
+
+
